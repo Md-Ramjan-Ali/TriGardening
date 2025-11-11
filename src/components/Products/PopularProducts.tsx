@@ -3,22 +3,24 @@ import ProductCard from "./ProductCard";
 import { products } from "@/data/products";
 import { LuCircleChevronRight } from "react-icons/lu";
 
-const FeaturedProducts = () => {
-  const featuredProducts = products.filter(
-    (product) => product.category === "featured"
-  );
-
+const PopularProducts = () => {
+   const popularProducts = products.filter(
+     (product) => product.category === "popular"
+    );
   return (
-    <section className="py-12 bg-[#f3f5e7] relative">
+    <section className="py-12 relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-0 relative">
         {/* Section Title */}
-        <h2 className="text-2xl font-bold text-center text-green-900 mb-8">
-          Featured Product
+        <h2 className="text-2xl font-bold text-center text-green-900 mb-2">
+          Popular Products
         </h2>
+        <p className="text-gray-600 text-center mb-8">
+          Discover our most popular gardening essentials
+        </p>
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {featuredProducts.map((product) => (
+          {popularProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
@@ -36,4 +38,4 @@ const FeaturedProducts = () => {
   );
 };
 
-export default FeaturedProducts;
+export default PopularProducts;

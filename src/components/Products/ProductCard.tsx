@@ -33,7 +33,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <div className="absolute inset-0 bg-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
         {/* Add to Cart Button (hover visible, moves up) */}
-        <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-800 text-white px-4 py-2 font-semibold rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-16 transition-all duration-300">
+        <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-800 text-white px-4 py-2 font-semibold rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-16 transition-all duration-300" title="Add to Cart product">
           Add to Cart
         </button>
       </div>

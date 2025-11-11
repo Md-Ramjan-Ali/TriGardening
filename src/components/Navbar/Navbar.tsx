@@ -22,7 +22,7 @@ export default function Navbar({ openNav }: props) {
     <div
       className=" w-full transition-all bg-[#2D5016] duration-300 h-[12vh] z-1000 "
     >
-      <div className="flex justify-between items-center mx-auto h-full w-[95%] lg:w-[90%]">
+      <div className="w-[95%] lg:w-[90%] mx-auto flex items-center justify-between h-full ">
         {/* Logo */}
         <div className="flex items-center gap-1">
           <Image
@@ -37,7 +37,7 @@ export default function Navbar({ openNav }: props) {
           </h1></Link>
         </div>
         {/* navLinks */}
-        <div className="hidden lg:flex items-center space-x-8 text-white">
+        <div className="hidden md:flex items-center gap-10 text-white">
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>
@@ -52,7 +52,7 @@ export default function Navbar({ openNav }: props) {
           </Link>
         </div>
 
-        <div className="flex items-center gap-5 text-white">
+        <div className="flex items-center gap-10 text-white">
           {/* Call Now */}
           <button className="hidden md:flex items-center gap-1 bg-[#E17E27] text-white px-3 py-1 rounded-md text-sm hover:bg-[#d36f1e] transition">
             <FaPhone size={16} />

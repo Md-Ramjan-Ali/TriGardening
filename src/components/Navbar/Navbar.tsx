@@ -8,38 +8,15 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 type props = {
   openNav: () => void;
-  // onProfileClick?: () => void;
-  // setIsRegistrationModalOpen: (isOpen: boolean) => void;
 };
 export default function Navbar({ openNav }: props) {
-  // simple fallback state for background logic (previously handled via scroll)
-
-  // const { data: session } = useSession();
-
-  // useEffect(() => {
-  //   const handler = () => {
-  //     if (window.scrollY >= 90) setNavBg(true);
-  //     if (window.scrollY < 90) setNavBg(false);
-  //   };
-  //   window.addEventListener("scroll", handler);
-  //   return () => window.removeEventListener("scroll", handler);
-  // }, []);
 
   const pathname = usePathname();
-  // const bgClass = "bg-transparent";
 
   const linkClass = (href: string) =>
     pathname === href
       ? " font-semibold border-b-3 border-green-500 pb-1"
       : "hover:text-[#749b3f]";
-
-
-
-  // const handleProfileClick = () => {
-  //   if (onProfileClick) {
-  //     onProfileClick();
-  //   }
-  // };
 
   return (
     <div
@@ -50,9 +27,9 @@ export default function Navbar({ openNav }: props) {
         <div className="flex items-center gap-1">
           <Image
             src="/images/logo.png"
-            alt="Logo"
-            width={100}
-            height={100}
+            alt="TriGardening Logo"
+            width={50}
+            height={50}
             className=""
           />
           <Link href='/'> <h1 className="text-xl lg:text-2xl font-bold text-white">
@@ -64,13 +41,13 @@ export default function Navbar({ openNav }: props) {
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>
-          <Link href="/Products" className={linkClass("/shop")}>
+          <Link href="/Products" className={linkClass("/Products")}>
             Products
           </Link>
-          <Link href="/Blog" className={linkClass("/about")}>
+          <Link href="/Blog" className={linkClass("/Blog")}>
             Blog
           </Link>
-          <Link href="/PlantClinic" className={linkClass("/blog")}>
+          <Link href="/PlantClinic" className={linkClass("/PlantClinic")}>
             Plant Clinic
           </Link>
         </div>

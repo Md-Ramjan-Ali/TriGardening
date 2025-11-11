@@ -67,10 +67,10 @@ export default function Hero() {
                   </h1>
                   <p className="text-lg mb-6">{slide.subtitle}</p>
                   <div className="flex gap-4">
-                    <button className="bg-[#E17E27] hover:bg-[#d36f1e] text-white px-5 py-2 rounded-md text-sm font-medium transition">
+                    <button className="bg-[#E17E27] hover:bg-[#d36f1e] text-white px-6 py-3 rounded-full text-sm font-medium transition">
                       Shop Now
                     </button>
-                    <button className="bg-transparent border border-white px-5 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-green-900 transition">
+                    <button className="bg-[#E17E27] hover:bg-[#d36f1e] text-white px-6 py-3 rounded-full text-sm font-medium transition">
                       Call Now
                     </button>
                   </div>

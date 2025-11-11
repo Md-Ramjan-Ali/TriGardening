@@ -41,13 +41,13 @@ export default function Navbar({ openNav }: props) {
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>
-          <Link href="/Products" className={linkClass("/Products")}>
+          <Link href="/products" className={linkClass("/products")}>
             Products
           </Link>
-          <Link href="/Blog" className={linkClass("/Blog")}>
+          <Link href="/blog" className={linkClass("/blog")}>
             Blog
           </Link>
-          <Link href="/PlantClinic" className={linkClass("/PlantClinic")}>
+          <Link href="/plantClinic" className={linkClass("/plantClinic")}>
             Plant Clinic
           </Link>
         </div>

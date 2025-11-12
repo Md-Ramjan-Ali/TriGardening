@@ -162,7 +162,7 @@ export const commentsData = [
     id: 1,
     author: {
       name: "Hamida Chowdhury",
-      avatar: "https://i.pravatar.cc/150?img=5",
+      avatar: "/images/user.png",
       username: "@hamidarahman",
     },
     content:

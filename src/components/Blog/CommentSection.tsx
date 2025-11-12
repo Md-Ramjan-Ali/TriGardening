@@ -15,7 +15,9 @@ export default function CommentSection() {
       <div className="mt-6">
         <div className="flex items-start gap-3">
           <Image
-            src="/images/user.png"
+            src="/images/blog1.jpg"
+            width={40}
+            height={40}
             alt="User"
             className="w-10 h-10 rounded-full"
           />

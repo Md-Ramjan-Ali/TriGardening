@@ -1,43 +1,16 @@
 "use client";
-
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { slides } from "@/data/slides";
 
-type Slide = {
-  id: number;
-  image: string;
-  title: string;
-  subtitle: string;
-};
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    image: "/images/heroImage.jpg",
-    title: "Nurture Your Green Paradise",
-    subtitle: "Your slogan goes here",
-  },
-  {
-    id: 2,
-    image: "/images/heroImage.jpg",
-    title: "Grow Freshness at Your Home",
-    subtitle: "Make nature part of your life",
-  },
-  {
-    id: 3,
-    image: "/images/heroImage.jpg",
-    title: "Beautify Spaces with Nature",
-    subtitle: "Plants make everything better",
-  },
-];
 export default function Hero() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
   return (

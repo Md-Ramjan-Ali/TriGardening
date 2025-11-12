@@ -9,10 +9,10 @@ const FeaturedProducts = () => {
   );
 
   return (
-    <section className="py-12 bg-[#f3f5e7] relative">
+    <section className="py-12 bg-[#F5F5DC] relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-0 relative">
         {/* Section Title */}
-        <h2 className="text-2xl font-bold text-center text-green-900 mb-8">
+        <h2 className="text-2xl font-bold text-center text-[#2D5016] mb-8">
           Featured Product
         </h2>
 
@@ -29,7 +29,7 @@ const FeaturedProducts = () => {
                      transition duration-300 cursor-pointer"
           aria-label="Next Products"
         >
-          <LuCircleChevronRight className="w-7 h-7 text-green-900" />
+          <LuCircleChevronRight className="w-7 h-7 text-[#2D5016]" />
         </button>
       </div>
     </section>

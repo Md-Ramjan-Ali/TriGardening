@@ -11,10 +11,10 @@ const PopularProducts = () => {
     <section className="py-12 relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-0 relative">
         {/* Section Title */}
-        <h2 className="text-2xl font-bold text-center text-green-900 mb-2">
+        <h2 className="text-2xl font-bold text-center text-[#2D5016] mb-2">
           Popular Products
         </h2>
-        <p className="text-gray-600 text-center mb-8">
+        <p className="text-[#2D5016] text-center mb-8">
           Discover our most popular gardening essentials
         </p>
 
@@ -31,7 +31,7 @@ const PopularProducts = () => {
                      transition duration-300 cursor-pointer"
           aria-label="Next Products"
         >
-          <LuCircleChevronRight className="w-7 h-7 text-green-900" />
+          <LuCircleChevronRight className="w-7 h-7 text-[#2D5016]" />
         </button>
       </div>
     </section>

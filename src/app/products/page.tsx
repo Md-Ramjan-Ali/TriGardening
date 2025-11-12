@@ -116,13 +116,13 @@ export default function ProductsPage() {
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <div className="">
-              <h2 className="text-2xl font-semibold text-[#2D5016]">
+              <h2 className="text-2xl font-bold text-[#404040]">
                 Plants 
               </h2>
-              <p className="text-gray-500 text-sm">(Showing 10 of 40)</p>
+              <p className="text-[#404040]">Showing 10 of 40 products</p>
             </div>
 
-            <select className="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none">
+            <select className="border rounded-md px-3 py-2 text-sm text-[#404040] focus:outline-none">
               <option>Sort By: Popular</option>
               <option>Sort By: Featured</option>
             </select>

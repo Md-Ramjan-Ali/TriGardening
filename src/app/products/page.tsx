@@ -33,8 +33,6 @@ export default function ProductsPage() {
         </div>
       </nav>
 
-     
-
       {/* Main Section */}
       <div className="max-w-7xl mx-auto flex gap-8 px-6 py-10">
         {/* Sidebar Filter */}

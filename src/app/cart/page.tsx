@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useCart } from "../context/CartContext";
 
@@ -12,18 +11,16 @@ const CartPage = () => {
   }, 0);
 
   if (cart.length === 0) {
-    return (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-semibold mb-3 text-gray-700">
-          🛒 Your cart is empty
-        </h2>
-        <p
-          className="text-gray-500"
-        >
-          Add to Product cart.
-        </p>
-      </div>
-    );
+    return <div className="text-center py-20">
+      <h2 className="text-2xl font-semibold mb-3 text-gray-700">
+        🛒 Your cart is empty
+      </h2>
+      <p
+        className="text-gray-500"
+      >
+        Add to Product cart.
+      </p>
+    </div>
   }
 
   return (

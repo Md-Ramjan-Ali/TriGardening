@@ -1,4 +1,6 @@
 "use client";
+import LoginForm from "@/app/auth/LoginForm";
+import RegisterForm from "@/app/auth/RegisterForm";
 import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +16,8 @@ type props = {
 };
 
 export default function Navbar({ openNav }: props) {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const { cart } = useCart();
   const router = useRouter();
   const pathname = usePathname();
@@ -36,6 +40,17 @@ export default function Navbar({ openNav }: props) {
     pathname === href
       ? " font-semibold border-b-3 border-green-500 pb-1"
       : "hover:text-[#749b3f]";
+
+  const openRegisterFromLogin = () => {
+    setShowLogin(false);      
+    setShowRegister(true);    
+  };
+
+  const openLoginFromRegister = () => {
+    setShowRegister(false);   
+    setShowLogin(true);       
+  };
+
 
   return (
     <div
@@ -91,7 +106,7 @@ export default function Navbar({ openNav }: props) {
           {/* Cart */}
           <div onClick={() => router.push("/cart")} className="relative hidden sm:flex cursor-pointer">
             <MdShoppingCart size={20} />
-            {cart.length > 0 && (
+            {mounted && cart.length > 0 && (
               <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full px-2 text-xs">
                 {cart.length}
               </div>
@@ -99,7 +114,9 @@ export default function Navbar({ openNav }: props) {
           </div>
 
           {/* User */}
-          <BiUser size={20} className="cursor-pointer hidden sm:flex" />
+          <div onClick={() => setShowLogin(true)} className="">
+            <BiUser size={20} className="cursor-pointer hidden sm:flex" />
+          </div>
 
           {/* Hamburger Menu (Mobile) */}
           <RxHamburgerMenu
@@ -109,7 +126,8 @@ export default function Navbar({ openNav }: props) {
         </div>
       </div>
 
-
+      {showLogin && <LoginForm onClose={() => setShowLogin(false)} switchToRegister={openRegisterFromLogin} />}
+      {showRegister && <RegisterForm onClose={() => setShowRegister(false)} switchToLogin={openLoginFromRegister} />}
     </div>
   )
 }

@@ -20,7 +20,7 @@ export default function Navbar({ openNav }: props) {
 
   return (
     <div
-      className=" w-full transition-all bg-[#2D5016] duration-300 h-[12vh] z-1000 "
+      className="w-full transition-all bg-[#2D5016] duration-300 h-[12vh] z-1000 "
     >
       <div className="w-[95%] lg:w-[90%] mx-auto flex items-center justify-between h-full ">
         {/* Logo */}
@@ -37,7 +37,7 @@ export default function Navbar({ openNav }: props) {
           </h1></Link>
         </div>
         {/* navLinks */}
-        <div className="hidden md:flex items-center gap-10 text-white">
+        <div className="hidden lg:flex items-center gap-15 text-white">
           <Link href="/" className={linkClass("/")}>
             Home
           </Link>
@@ -74,7 +74,7 @@ export default function Navbar({ openNav }: props) {
             <MdShoppingCart size={20} />
             <span className="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full px-1">
               {/* {cartCount} */}
-3
+              3
             </span>
           </div>
 

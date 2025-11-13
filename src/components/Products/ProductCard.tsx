@@ -11,7 +11,7 @@ interface ProductProps {
     priceRange: string;
     rating: number;
     reviews: number;
-    images: string;
+    images: string[];
   };
 }
 
@@ -26,7 +26,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
             alt={product.name}
             width={300}
             height={100}
-            className="h-54 object-cover"
+            className="h-54 w-full object-cover"
           />
         </div>
 

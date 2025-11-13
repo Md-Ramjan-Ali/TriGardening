@@ -5,7 +5,7 @@ import ProductCard from "@/components/Products/ProductCard";
 
 export default function ProductsPage() {
   return (
-    <div className="bg-[#F5F5DC] min-h-screen font-sans">
+    <div className="bg-[#F5F5DC] min-h-screen">
       {/* Navbar */}
       <nav className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">

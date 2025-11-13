@@ -1,12 +1,15 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 import { Heart, Minus, Plus } from "lucide-react";
 import { products } from "@/data/products";
 import ProductCard from "@/components/Products/ProductCard";
+import { useCart } from "@/app/context/CartContext";
 
 const ProductDetails = () => {
+  const router = useRouter();
+  const { addToCart } = useCart();
   const params = useParams();
   const id = params?.id;
   const product = products.find((b) => b.id === Number(id));
@@ -22,6 +25,12 @@ const ProductDetails = () => {
 
   if (!product) return <p>Product not found (check console for Route ID and product IDs)</p>;
 
+  
+  
+    const handleAddToCart = () => {
+      addToCart({ ...product, image: product.images[0] }) 
+      router.push("/cart");
+    };
   return (
     <section className="bg-[#F5F5DC] min-h-screen">
       {/* Navbar */}
@@ -201,7 +210,7 @@ const ProductDetails = () => {
             </button>
           </div>
 
-          <button className="mt-6 bg-[#2D5016] text-white px-6 py-3 rounded-lg w-full">
+          <button onClick={handleAddToCart} className="mt-6 bg-[#2D5016] text-white px-6 py-3 rounded-lg w-full">
             Add to Cart
           </button>
         </div>

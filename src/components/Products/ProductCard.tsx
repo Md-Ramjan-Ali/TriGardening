@@ -1,5 +1,8 @@
+"use client";
+import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface ProductProps {
@@ -16,6 +19,13 @@ interface ProductProps {
 }
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const { addToCart } = useCart();
+  const router = useRouter();
+
+  const handleAddToCart = () => {
+    addToCart({ ...product, image: product.images[0] }) 
+    router.push("/cart");
+  };
   return (
     <div className="relative rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-lg cursor-pointer">
       {/* Image */}
@@ -30,11 +40,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
           />
         </div>
 
-        {/* Hover overlay (blur + fade effect) */}
+        {/* Hover overlay */}
         <div className="absolute inset-0 bg-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
         {/* Add to Cart Button (hover visible, moves up) */}
-        <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#2D5016] text-white px-4 py-2 font-semibold rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-16 transition-all duration-300" title="Add to Cart product">
+        <button onClick={handleAddToCart} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#2D5016] text-white px-4 py-2 font-semibold rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:-translate-y-16 transition-all duration-300" title="Add to Cart product">
           Add to Cart
         </button>
       </div>
@@ -64,10 +74,10 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         </div>
       </div>
 
-      {/* View Details Button (only on hover bottom side) */}
+     
       {/* Buttons */}
       <div className=" w-full">
-        <button className="w-full bg-[#2D5016] text-white py-2 font-semibold group-hover:hidden">
+        <button onClick={handleAddToCart} className="w-full bg-[#2D5016] text-white py-2 font-semibold group-hover:hidden">
           Add to Cart
         </button>
         <Link href={`/products/${product.id}`}>

@@ -1,6 +1,9 @@
+"use client";
+import { useCart } from "@/app/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { FaPhone } from "react-icons/fa";
 import { MdSearch, MdShoppingCart } from "react-icons/md";
@@ -9,9 +12,25 @@ import { RxHamburgerMenu } from "react-icons/rx";
 type props = {
   openNav: () => void;
 };
-export default function Navbar({ openNav }: props) {
 
+export default function Navbar({ openNav }: props) {
+  const { cart } = useCart();
+  const router = useRouter();
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="relative h-6 w-6 flex items-center justify-center">
+        <MdShoppingCart size={25} />
+      </div>
+    );
+  }
 
   const linkClass = (href: string) =>
     pathname === href
@@ -70,12 +89,13 @@ export default function Navbar({ openNav }: props) {
           </div>
 
           {/* Cart */}
-          <div className="relative hidden sm:flex cursor-pointer">
+          <div onClick={() => router.push("/cart")} className="relative hidden sm:flex cursor-pointer">
             <MdShoppingCart size={20} />
-            <span className="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full px-1">
-              {/* {cartCount} */}
-              3
-            </span>
+            {cart.length > 0 && (
+              <div className="absolute -top-2 -right-2 bg-orange-500 text-white rounded-full px-2 text-xs">
+                {cart.length}
+              </div>
+            )}
           </div>
 
           {/* User */}

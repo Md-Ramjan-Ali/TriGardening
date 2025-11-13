@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface ProductProps {
@@ -10,7 +11,7 @@ interface ProductProps {
     priceRange: string;
     rating: number;
     reviews: number;
-    image: string;
+    images: string;
   };
 }
 
@@ -21,7 +22,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       <div className="relative">
         <div className="">
           <Image
-            src={product.image}
+            src={product.images[0]}
             alt={product.name}
             width={300}
             height={100}
@@ -69,9 +70,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <button className="w-full bg-[#2D5016] text-white py-2 font-semibold group-hover:hidden">
           Add to Cart
         </button>
+        <Link href={`/products/${product.id}`}>
         <button className="hidden group-hover:block w-full bg-[#2D5016] text-white py-2 font-semibold">
           View Details
         </button>
+        </Link>
       </div>
     </div>
   );

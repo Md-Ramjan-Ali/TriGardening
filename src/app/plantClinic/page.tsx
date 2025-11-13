@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Plus, Search, Upload, Send, Mic, ImageIcon, Check, ChevronRight, Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { FaCamera } from 'react-icons/fa';
 
 interface Message {
   id: number;
@@ -177,7 +178,7 @@ const ChatbotPage = () => {
             >
               {sidebarOpen ? <Image src="/images/chat (2).png" alt="Logo" width={30} height={30} /> : ""}
             </button>
-            
+
           </div>
 
           <button
@@ -198,7 +199,8 @@ const ChatbotPage = () => {
           </div>
 
           <button className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-green-600 rounded-lg mb-6 transition-colors">
-            <Upload className="w-5 h-5" />
+            <ImageIcon className="w-5 h-5" />
+
             <span>Uploaded Media</span>
           </button>
 
@@ -229,7 +231,7 @@ const ChatbotPage = () => {
             {sidebarOpen ? "" : <Menu className="w-6 h-6" />}
           </button>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#2D5016] rounded-full flex items-center justify-center">
               <Image src="/images/chat (1).png" alt="Logo" width={30} height={30} />
             </div>
             <div>
@@ -243,7 +245,7 @@ const ChatbotPage = () => {
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex gap-3 max-w-2xl ${message.type === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${message.type === 'bot' ? 'bg-green-600' : 'bg-gray-300'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${message.type === 'bot' ? 'bg-[#2D5016]' : 'bg-gray-300'}`}>
                   {message.type === 'bot' ? (
                     <Image src="/images/chat (1).png" alt="Logo" width={30} height={30} />
                   ) : (
@@ -312,9 +314,16 @@ const ChatbotPage = () => {
             />
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="p-3 hover:bg-gray-100 rounded-full transition-colors"
+              className=""
             >
-              <ImageIcon className="w-6 h-6 text-gray-600" />
+              <div className="flex gap-2">
+                <div className="bg-[#2D5016] p-3 rounded-full">
+                  <FaCamera className="w-6 h-6 text-white " />
+                </div>
+                <div className="bg-[#2D5016] p-3 rounded-full">
+                  <Upload className="w-5 h-5 text-white" />
+                </div>
+              </div>
             </button>
 
             <div className="flex-1 relative">
@@ -324,17 +333,19 @@ const ChatbotPage = () => {
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="আপনার বার্তা লিখুন অথবা গাছের ছবি পাঠান। আপনার গাছ সম্পর্কে বিস্তারিত..."
-                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-full focus:outline-none "
               />
+              <button type="button" className="absolute top-0 right-2 p-3 hover:bg-gray-100 rounded-full transition-colors">
+                <Mic className="w-6 h-6 text-[#2D5016]" />
+              </button>
             </div>
 
-            <button className="p-3 hover:bg-gray-100 rounded-full transition-colors">
-              <Mic className="w-6 h-6 text-gray-600" />
-            </button>
+
 
             <button
+              type="button"
               onClick={handleSend}
-              className="p-3 bg-green-600 hover:bg-green-700 rounded-full transition-colors"
+              className="p-3 bg-[#2D5016] hover:bg-green-700 rounded-full transition-colors"
             >
               <Send className="w-6 h-6 text-white" />
             </button>
